@@ -3,57 +3,59 @@
 <title>Rencha Soundboard</title>
 <link rel="icon" href="/e/wHD.png" type="image/x-icon">
 <style>
-* {
-	font-family: sans-serif;
-}
-td {
-	background-color: #aaa;
-	margin: 8px;
-	padding: 8px;
-	text-align: center;
-}
+	* {
+		font-family: sans-serif;
+	}
+	td {
+		background-color: #aaa;
+		margin: 8px;
+		padding: 8px;
+		text-align: center;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		cursor: pointer;
+	}
 </style>
 <script>
 	function play(id) {
 		document.getElementById(id).play();
 	}
 </script>
-<audio id="aaa1" src="/soundboard/aaa1.mp3"></audio>
-<audio id="dududududu" src="/soundboard/dududududu.mp3"></audio>
-<audio id="fatfinger" src="/soundboard/fatfinger.mp3"></audio>
-<audio id="givemelp" src="/soundboard/givemelp.mp3"></audio>
-<audio id="kys" src="/soundboard/kys.mp3"></audio>
-<audio id="manly" src="/soundboard/manly.mp3"></audio>
-<audio id="preg" src="/soundboard/preg.mp3"></audio>
-<audio id="singingtoday" src="/soundboard/singingtoday.mp3"></audio>
-<audio id="slit" src="/soundboard/slit.mp3"></audio>
-<audio id="uityouknow" src="/soundboard/uityouknow.mp3"></audio>
-<audio id="wot" src="/soundboard/wot.mp3"></audio>
+<audio id="aaa1" src="aaa1.mp3"></audio>
+<audio id="dududududu" src="dududududu.mp3"></audio>
+<audio id="fatfinger" src="fatfinger.mp3"></audio>
+<audio id="givemelp" src="givemelp.mp3"></audio>
+<audio id="kys" src="kys.mp3"></audio>
+<audio id="manly" src="manly.mp3"></audio>
+<audio id="preg" src="preg.mp3"></audio>
+<audio id="singingtoday" src="singingtoday.mp3"></audio>
+<audio id="slit" src="slit.mp3"></audio>
+<audio id="uityouknow" src="uityouknow.mp3"></audio>
+<audio id="wot" src="wot.mp3"></audio>
 </head>
 <body>
 	<p style="text-align: center; padding: 8px;">Click any box to play</p>
-	<table style="margin: 0 auto">
+	<table style="margin: 0 auto; table-layout: fixed; width: 100%; max-width: 900px;">
 		<tr>
 			<td onclick="play('aaa1')">AAAA</td>
 			<td onclick="play('dududududu')">DUDUDUDUDU</td>
+			<td onclick="play('fatfinger')">Fat finger</td>
 		</tr>
 		<tr>
-			<td onclick="play('fatfinger')">Fat Fingers</td>
 			<td onclick="play('givemelp')">Give me LP :(</td>
-		</tr>
-		<tr>
 			<td onclick="play('kys')">KYS</td>
 			<td onclick="play('manly')">Why are you inting?</td>
 		</tr>
 		<tr>
 			<td onclick="play('preg')">Guys</td>
 			<td onclick="play('singingtoday')">I'm singing</td>
-		</tr>
-		<tr>
 			<td onclick="play('slit')">I'm gonna...</td>
-			<td onclick="play('uityouknow')">Uitgeschakeld</td>
 		</tr>
 		<tr>
+			<td onclick="play('uityouknow')">Uitgeschakeld</td>
 			<td onclick="play('wot')">wot?</td>
 		</tr>
 	</table>
