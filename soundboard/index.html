@@ -3,25 +3,21 @@
 <title>Rencha Soundboard</title>
 <link rel="icon" href="/e/wHD.png" type="image/x-icon">
 <style>
-p {
+* {
 	font-family: sans-serif;
+}
+td {
 	background-color: #aaa;
+	margin: 8px;
 	padding: 8px;
+	text-align: center;
 }
 </style>
-</head>
-<body>
-<p onclick="document.getElementById('aaa1').play()">AAAA</p>
-<p onclick="document.getElementById('dududududu').play()">DUDUDUDUDU</p>
-<p onclick="document.getElementById('fatfinger').play()">Fat Fingers</p>
-<p onclick="document.getElementById('givemelp').play()">Give me LP :(</p>
-<p onclick="document.getElementById('kys').play()">KYS</p>
-<p onclick="document.getElementById('manly').play()">Why are you inting?</p>
-<p onclick="document.getElementById('preg').play()">Guys</p>
-<p onclick="document.getElementById('singingtoday').play()">I'm singing</p>
-<p onclick="document.getElementById('slit').play()">I'm gonna...</p>
-<p onclick="document.getElementById('uityouknow').play()">Uitgeschakeld</p>
-<p onclick="document.getElementById('wot').play()">wot?</p>
+<script>
+	function play(id) {
+		document.getElementById(id).play();
+	}
+</script>
 <audio id="aaa1" src="/soundboard/aaa1.mp3"></audio>
 <audio id="dududududu" src="/soundboard/dududududu.mp3"></audio>
 <audio id="fatfinger" src="/soundboard/fatfinger.mp3"></audio>
@@ -33,5 +29,33 @@ p {
 <audio id="slit" src="/soundboard/slit.mp3"></audio>
 <audio id="uityouknow" src="/soundboard/uityouknow.mp3"></audio>
 <audio id="wot" src="/soundboard/wot.mp3"></audio>
+</head>
+<body>
+	<p style="text-align: center; padding: 8px;">Click any box to play</p>
+	<table style="margin: 0 auto">
+		<tr>
+			<td onclick="play('aaa1')">AAAA</td>
+			<td onclick="play('dududududu')">DUDUDUDUDU</td>
+		</tr>
+		<tr>
+			<td onclick="play('fatfinger')">Fat Fingers</td>
+			<td onclick="play('givemelp')">Give me LP :(</td>
+		</tr>
+		<tr>
+			<td onclick="play('kys')">KYS</td>
+			<td onclick="play('manly')">Why are you inting?</td>
+		</tr>
+		<tr>
+			<td onclick="play('preg')">Guys</td>
+			<td onclick="play('singingtoday')">I'm singing</td>
+		</tr>
+		<tr>
+			<td onclick="play('slit')">I'm gonna...</td>
+			<td onclick="play('uityouknow')">Uitgeschakeld</td>
+		</tr>
+		<tr>
+			<td onclick="play('wot')">wot?</td>
+		</tr>
+	</table>
 </body>
 </html>
