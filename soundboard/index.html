@@ -23,6 +23,13 @@
 	function play(id) {
 		document.getElementById(id).play();
 	}
+	ae = document.getElementsByTagName("audio");
+	function pauseAll() {
+		for (i = 0; i < ae.length; i++) {
+			ae[i].pause();
+			ae[i].currentTime = 0;
+		}
+	}
 </script>
 <audio id="aaa1" src="aaa1.mp3"></audio>
 <audio id="dududududu" src="dududududu.mp3"></audio>
@@ -57,6 +64,9 @@
 		<tr>
 			<td onclick="play('uityouknow')">Uitgeschakeld</td>
 			<td onclick="play('wot')">wot?</td>
+		</tr>
+		<tr>
+			<td colspan="3" onclick="pauseAll()" style="background-color: #faa">Stop</td>
 		</tr>
 	</table>
 </body>
