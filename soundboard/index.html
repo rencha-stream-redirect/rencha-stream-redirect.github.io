@@ -3,71 +3,147 @@
 <title>Rencha Soundboard</title>
 <link rel="icon" href="/e/wHD.png" type="image/x-icon">
 <style>
-	* {
-		font-family: sans-serif;
-	}
-	td {
-		background-color: #aaa;
-		margin: 8px;
-		padding: 8px;
-		text-align: center;
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-		cursor: pointer;
-	}
+* {
+	font-family: sans-serif;
+	user-select: none;
+	text-align: center;
+}
+td {
+	background-color: #aaa;
+	background-image: linear-gradient(#aaa 100%, #000);
+	background-repeat: no-repeat;
+	background-size: 0% 100%;
+	margin: 8px;
+	padding: 16px 8px;
+	cursor: pointer;
+}
+td:hover:active {
+	background-color: #777
+}
+td:hover {
+	background-color: #888
+}
+td:active {
+	background-color: #999;
+}
+#stop {
+	background-color: #faa;
+	transition: 0.2s;
+}
+#stop:hover:active {
+	background-color: #c77;
+}
+#stop:hover {
+	background-color: #d88;
+}
+#stop:active {
+	background-color: #e99;
+}
 </style>
+</head>
+<body>
+<p style="text-align: center; padding: 8px;" onclick="rek()" title="monkaS">Click any box to play</p>
+<table id="table" style="margin: 0 auto; table-layout: fixed; width: 100%; max-width: 900px;">
+	<tr><td id="stop" colspan="3" onclick="stopAll()">Stop</td></tr>
+</table>
 <script>
+	credits = {'krs': 'krsShin', 'N': 'Nnnes', 'sch': 'scheffe', 'sg': 'Sergej', 'tc': 'Trollcuk', 'uit': 'Uitgeschakeld'};
+	clips = [['aaa1', 'AAAA', 'tc', 'tc'],
+	['aaa2', 'AAAHH', 'N', 'N'],
+	['blaviens', 'BLAVIENS', 'uit', 'uit'],
+	['uae', 'D:', 'uit', 'uit'],
+	['lul', 'ᴸᵘᴸ', 'N', 'N'],
+	['reinis', 'Reinis', 'sch', 'N'],
+	['baiting', 'Rencha\'s life', 'sch', 'N'],
+	['watafaaa', 'WATAFAAA', 'uit', 'uit'],
+	['poochki', 'Beatbox', 'uit', 'sg'],
+	['dududududu', 'DUDUDUDUDU', 'tc', 'tc'],
+	['friday', 'Friday', 'uit', 'uit'],
+	['getlow', 'Get low', 'uit', 'uit'],
+	['rbdoublec', 'R-B-Double-C', 'uit', 'uit'],
+	['givemelp', 'Give me LP :(', 'tc', 'tc'],
+	['slit', 'I\'m gonna', 'krs', 'N'],
+	['janna', 'Janna player', 'tc', 'tc'],
+	['kys', 'KYS', 'uit', 'N'],
+	['renchaFeels', 'renchaFeels', 'uit', 'uit'],
+	['monkaS', 'Russcha', 'uit', 'uit'],
+	['boiii', 'Boiii', 'uit', 'uit'],
+	['cannon', 'Cannon', 'uit', 'uit'],
+	['manly', 'Eyh Rencha', 'tc', 'tc'],
+	['fatfinger', 'Fat finger', 'tc', 'tc'],
+	['gggg', 'G G G G', 'uit', 'uit'],
+	['btw', 'Girl BTW', 'N', 'N'],
+	['preg', 'Guys...', 'tc', 'tc'],
+	['hello', 'Hello?', 'N', 'N'],
+	['Ilove', 'I love', 'uit', 'uit'],
+	['singingtoday', 'I\'m singing', 'tc', 'tc'],
+	['mamacita', 'Mamacita', 'tc', 'tc'],
+	['midgets', 'Midgets', 'uit', 'uit'],
+	['nooo', 'Nooo', 'uit', 'uit'],
+	['sausage', 'Sausage', 'uit', 'uit'],
+	['uityouknow', 'Uitgeschakeld', 'tc', 'tc'],
+	['vashtap', 'Vašt ap', 'N', 'N'],
+	['wot', '... ...wot?', 'tc', 'tc']];
+	rekt = false;
 	function play(id) {
-		document.getElementById(id).play();
+		var audio = document.getElementById(id);
+		audio.play();
+		transition(id + '-td', audio.duration);
 	}
-	ae = document.getElementsByTagName("audio");
-	function pauseAll() {
-		for (i = 0; i < ae.length; i++) {
+	function transition(id, duration) {
+		var td = document.getElementById(id);
+		if (duration > 0) {
+			td.style['background-color'] = '#888';
+			td.style.transition = 'linear background-size ' + duration + 's';
+			td.style['background-size'] = '100% 100%';
+		} else {
+			td.style.transition = 'unset';
+			td.style['background-size'] = '0% 100%';
+			td.style.removeProperty('background-color');
+		}
+	}
+	function stopAll() {
+		var ae = document.getElementsByTagName('audio');
+		for (var i = 0; i < ae.length; i++) {
 			ae[i].pause();
 			ae[i].currentTime = 0;
 		}
+		for (var i = 0; i < clips.length; i++) {
+			transition(clips[i][0] + '-td', 0);
+		}
+	}
+	function rek() {
+		document.getElementsByTagName('p')[0].innerHTML = 'gottem';
+		document.getElementsByTagName('p')[0].title = 'xd';
+		for (var i = 0; i < clips.length; i++) {
+			play(clips[i][0]);
+		}
+		if (!rekt) {
+			rekt = true;
+			document.getElementById('table').deleteRow(-1);
+		}
+	}
+	var table = document.getElementById('table');
+	for (var i = 0; i < clips.length; i++) {
+		var a = document.createElement('audio');
+		a.preload = 'metadata';
+		a.id = clips[i][0];
+		a.src = clips[i][0] + '.mp3';
+		a.addEventListener('ended', (function(id) { return function() {
+			transition(id + '-td', 0);
+		}})(clips[i][0]));
+		document.body.appendChild(a);
+		if (i % 3 == 0) { table.insertRow(i / 3 | 0); }
+		var cell = table.rows[i / 3 | 0].insertCell(i % 3);
+		cell.id = clips[i][0] + '-td';
+		cell.onclick = (function(id) { return function() { play(id); } })(clips[i][0]);
+		cell.innerHTML = clips[i][1];
+		if (clips[i][2] == clips[i][3]) {
+			cell.title = 'Clipped and submitted by ' + credits[clips[i][2]];
+		} else {
+			cell.title = 'Clipped by ' + credits[clips[i][2]] + '\nSubmitted by ' + credits[clips[i][3]];
+		}
 	}
 </script>
-<audio id="aaa1" src="aaa1.mp3"></audio>
-<audio id="dududududu" src="dududududu.mp3"></audio>
-<audio id="fatfinger" src="fatfinger.mp3"></audio>
-<audio id="givemelp" src="givemelp.mp3"></audio>
-<audio id="kys" src="kys.mp3"></audio>
-<audio id="manly" src="manly.mp3"></audio>
-<audio id="preg" src="preg.mp3"></audio>
-<audio id="singingtoday" src="singingtoday.mp3"></audio>
-<audio id="slit" src="slit.mp3"></audio>
-<audio id="uityouknow" src="uityouknow.mp3"></audio>
-<audio id="wot" src="wot.mp3"></audio>
-</head>
-<body>
-	<p style="text-align: center; padding: 8px;">Click any box to play</p>
-	<table style="margin: 0 auto; table-layout: fixed; width: 100%; max-width: 900px;">
-		<tr>
-			<td onclick="play('aaa1')">AAAA</td>
-			<td onclick="play('dududududu')">DUDUDUDUDU</td>
-			<td onclick="play('fatfinger')">Fat finger</td>
-		</tr>
-		<tr>
-			<td onclick="play('givemelp')">Give me LP :(</td>
-			<td onclick="play('kys')">KYS</td>
-			<td onclick="play('manly')">Why are you inting?</td>
-		</tr>
-		<tr>
-			<td onclick="play('preg')">Guys</td>
-			<td onclick="play('singingtoday')">I'm singing</td>
-			<td onclick="play('slit')">I'm gonna...</td>
-		</tr>
-		<tr>
-			<td onclick="play('uityouknow')">Uitgeschakeld</td>
-			<td onclick="play('wot')">wot?</td>
-		</tr>
-		<tr>
-			<td colspan="3" onclick="pauseAll()" style="background-color: #faa">Stop</td>
-		</tr>
-	</table>
 </body>
 </html>
