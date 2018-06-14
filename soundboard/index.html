@@ -7,6 +7,7 @@
 	font-family: sans-serif;
 	user-select: none;
 	text-align: center;
+	transition: background-color, 0.2s;
 }
 td {
 	background-color: #aaa;
@@ -61,6 +62,7 @@ td:active {
 	['friday', 'Friday', 'uit', 'uit'],
 	['getlow', 'Get low', 'uit', 'uit'],
 	['rbdoublec', 'R-B-Double-C', 'uit', 'uit'],
+	['spacebound', 'Space Bound', 'tc', 'tc'],
 	['givemelp', 'Give me LP :(', 'tc', 'tc'],
 	['slit', 'I\'m gonna', 'krs', 'N'],
 	['janna', 'Janna player', 'tc', 'tc'],
@@ -76,6 +78,7 @@ td:active {
 	['preg', 'Guys...', 'tc', 'tc'],
 	['hello', 'Hello?', 'N', 'N'],
 	['Ilove', 'I love', 'uit', 'uit'],
+	['ichmag', 'Ich mag', 'tc', 'tc'],
 	['singingtoday', 'I\'m singing', 'tc', 'tc'],
 	['mamacita', 'Mamacita', 'tc', 'tc'],
 	['midgets', 'Midgets', 'uit', 'uit'],
@@ -97,7 +100,7 @@ td:active {
 			td.style.transition = 'linear background-size ' + duration + 's';
 			td.style['background-size'] = '100% 100%';
 		} else {
-			td.style.transition = 'unset';
+			td.style.transition = 'background-size 0s';
 			td.style['background-size'] = '0% 100%';
 			td.style.removeProperty('background-color');
 		}
