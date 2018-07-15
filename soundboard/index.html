@@ -143,7 +143,7 @@ td:active {
 		var cell = table.rows[i / 3 | 0].insertCell(i % 3);
 		cell.id = clips[i][0] + '-td';
 		cell.onclick = (function(id) { return function() { play(id); } })(clips[i][0]);
-		cell.innerHTML = (new_clips.includes(clips[i][0]) ? '<span style="color:#f00">New! </span>' : '') + clips[i][1];
+		cell.innerHTML = (new_clips.includes(clips[i][0]) ? '<span style="color:#f00;font-size:10pt"><b>New!</b> </span>' : '') + clips[i][1];
 		if (clips[i].length == 3) {
 			cell.title = 'Clipped and submitted by ' + credits[clips[i][2]];
 		} else {
